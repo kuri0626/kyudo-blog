@@ -9,6 +9,6 @@ class ArticleController extends Controller
 {
     public function index(Article $article)
     {
-        return $article -> get();
+        return view('articles/index')->with(['articles'=>$article->getByLimit()]);
     }
 }
