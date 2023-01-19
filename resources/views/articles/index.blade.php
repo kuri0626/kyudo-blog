@@ -13,7 +13,9 @@
         <div class = 'articles'>
             @foreach ($articles as $article)
                 <div class = 'article'>
-                    <p class = 'title'>{{ $article->title }}</p>
+                    <p class = 'title'>
+                        <a href="/articles/{{ $article->id }}">{{ $article->title }}</a>
+                    </p>
                 </div>
             @endforeach
         </div>
