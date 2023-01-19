@@ -11,4 +11,8 @@ class ArticleController extends Controller
     {
         return view('articles/index')->with(['articles'=>$article->getByLimit()]);
     }
+    public function show(Article $article)
+    {
+        return view('articles/show')->with(['article' => $article]);
+    }
 }
