@@ -26,4 +26,14 @@ class ArticleController extends Controller
         $article->fill($input)->save();
         return redirect('/articles/' . $article->id);
     }
+    public function edit(Article $article)
+    {
+        return view('articles/edit')->with(['article' => $article]);
+    }
+    public function update(ArticleRequest $request, Article $article)
+    {
+        $input_article = $request['article'];
+        $article->fill($input_article)->save();
+        return redirect('/articles/' . $article->id);
+    }
 }
