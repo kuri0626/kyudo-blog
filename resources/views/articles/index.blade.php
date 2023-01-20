@@ -10,6 +10,10 @@
         <h1>弓道射技検索アプリ</h1>
         <h2>ここは射技についての知識を共有するブログサイトです！</h2>
         <h3>下の検索バーで欲しい情報を検索しましょう！</h3>
+        <div>
+            <input type="search" name="s" placeholder="例：弓手　切り下げ">
+        </div>
+        <input type="submit" value="検索"/>
         <div class = 'articles'>
             @foreach ($articles as $article)
                 <div class = 'article'>
@@ -19,5 +23,6 @@
                 </div>
             @endforeach
         </div>
+        <a href='/articles/create'>管理者用</a>
     </body>
 </html>

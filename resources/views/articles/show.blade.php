@@ -13,7 +13,6 @@
         </h1>
         <div class="content">
             <div class="content__article">
-                <h3>本文</h3>
                 <p>{{ $article->body }}</p>
             </div>
         </div>

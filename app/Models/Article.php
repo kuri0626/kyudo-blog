@@ -12,4 +12,8 @@ class Article extends Model
     {
         return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
+    protected $fillable = [
+        'title',
+        'body',
+    ];
 }
