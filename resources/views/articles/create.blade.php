@@ -17,6 +17,14 @@
                 <textarea name="article[body]">{{ old('article.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('article.body') }}</p>
             </div>
+            <div class="category">
+                <h2>カテゴリー</h2>
+                <select name="article[category_id]">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="作成"/>
             @csrf
         </form>

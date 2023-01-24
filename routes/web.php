@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,7 @@ Route::get('/articles/create', [ArticleController::class, 'create']);
 Route::get('/articles/{article}', [ArticleController::class, 'show']);
 Route::get('/articles/{article}/edit', [ArticleController::class, 'edit']);
 Route::put('/articles/{article}', [ArticleController::class, 'update']);
+Route::delete('/articles/{article}', [ArticleController::class, 'delete']);
+Route::get('/categories/{category}', [CategoryController::class, 'index']);
 
 
