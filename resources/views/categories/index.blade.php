@@ -7,15 +7,12 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>弓道射技検索アプリ</h1>
-        <h2>ここは射技についての知識を共有するブログサイトです！</h2>
-        <h3>下の検索バーで欲しい情報を検索しましょう！</h3>
-        <div>
-            <input type="search" name="s" placeholder="例：弓手　切り下げ">
-        </div>
-        <input type="submit" value="検索"/>
+        <h1>弓道射技検索アプリ</h>
+        @foreach($articles as $article)
+        <h2>ここは{{ $article->category->name }}についての投稿一覧です！</h2>
+        @endforeach
         <div class = 'articles'>
-            @foreach ($articles as $article)
+            @foreach($articles as $article)
                 <div class = 'article'>
                     <p class = 'title'>
                         <a href="/articles/{{ $article->id }}">{{ $article->title }}</a>
@@ -26,9 +23,9 @@
                         <button  type="button" onclick="deleteArticle({{ $article->id }})">削除</button>
                     </form>
                 </div>
-                <a href="/categories/{{ $article->category->id }}">{{ $article->category->name }}</a>
             @endforeach
         </div>
+        <a href="/">トップに戻る</a>
         <a href='/articles/create'>管理者用</a>
         <script>
             function deleteArticle(id){

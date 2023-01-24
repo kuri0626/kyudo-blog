@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
+use App\Models\Category;
 
 class ArticleController extends Controller
 {
     public function index(Article $article)
     {
-        return view('articles/index')->with(['articles'=>$article->getByLimit()]);
+        return view('articles/index')->with(['articles'=>$article->getPaginateByLimit()]);
     }
-    public function create()
+    public function create(Category $category)
     {
-        return view('articles/create');
+        return view('articles/create')->with(['categories'=>$category->get()]);
     }
     public function show(Article $article)
     {
@@ -35,5 +36,10 @@ class ArticleController extends Controller
         $input_article = $request['article'];
         $article->fill($input_article)->save();
         return redirect('/articles/' . $article->id);
+    }
+    public function delete(Article $article)
+    {
+        $article->delete();
+        return redirect('/');
     }
 }
