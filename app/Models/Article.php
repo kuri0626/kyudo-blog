@@ -10,6 +10,7 @@ class Article extends Model
 {
     use SoftDeletes;
     use HasFactory;
+    
     public function getPaginateByLimit(int $limit_count = 5)
     {
         return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);

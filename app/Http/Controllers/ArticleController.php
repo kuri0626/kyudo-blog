@@ -11,7 +11,7 @@ class ArticleController extends Controller
 {
     public function index(Article $article)
     {
-        return view('articles/index')->with(['articles'=>$article->getPaginateByLimit()]);
+        return view('articles/index')->with(['articles' => $article->getPaginateByLimit()]);
     }
     public function create(Category $category)
     {
@@ -37,7 +37,11 @@ class ArticleController extends Controller
         $article->fill($input_article)->save();
         return redirect('/articles/' . $article->id);
     }
-    public function delete(Article $article)
+    public function delete2(Article $article)
+    {
+        return view('articles/delete')->with(["articles" => Article::get()]);
+    }
+    public function delete(Request $request, Article $article)
     {
         $article->delete();
         return redirect('/');

@@ -28,6 +28,7 @@
             <input type="submit" value="作成"/>
             @csrf
         </form>
+        <a href="/articles/delete">削除画面</a>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
