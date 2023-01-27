@@ -7,24 +7,23 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>弓道射技検索アプリ</h1>
-        <h2>ここは射技についての知識を共有するブログサイトです！</h2>
-        <h3>下の検索バーで欲しい情報を検索しましょう！</h3>
-        <div>
-            <input type="search" name="s" placeholder="例：弓手　切り下げ">
-        </div>
-        <input type="submit" value="検索"/>
+        <h1>投稿削除画面</h1>
         <div class = 'articles'>
             @foreach ($articles as $article)
                 <div class = 'article'>
                     <p class = 'title'>
                         <a href="/articles/{{ $article->id }}">{{ $article->title }}</a>
                     </p>
+                    <form action="/articles/{{ $article->id }}" id="form_{{ $article->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button  type="button" onclick="deleteArticle({{ $article->id }})">削除</button>
+                    </form>
                 </div>
                 <a href="/categories/{{ $article->category->id }}">{{ $article->category->name }}</a>
             @endforeach
         </div>
-        <a href='/articles/create'>管理者用</a>
+        <a href='/'>トップに戻る</a>
         <script>
             function deleteArticle(id){
                 'use strict'
