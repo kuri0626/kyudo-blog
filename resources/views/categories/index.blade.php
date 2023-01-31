@@ -8,9 +8,7 @@
     </head>
     <body>
         <h1>弓道射技検索アプリ</h>
-        @foreach($articles as $article)
-        <h2>ここは{{ $article->category->name }}についての投稿一覧です！</h2>
-        @endforeach
+        <h2>ここは{{$articles[0]->category->name}}についての投稿一覧です！</h2>
         <div class = 'articles'>
             @foreach($articles as $article)
                 <div class = 'article'>

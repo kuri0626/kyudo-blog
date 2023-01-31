@@ -17,6 +17,7 @@
             </div>
         </div>
         <a href="/categories/{{ $article->category->id }}">{{ $article->category->name }}</a>
+        
         <div class="footer">
             <a href="/">トップに戻る</a>
         </div>
