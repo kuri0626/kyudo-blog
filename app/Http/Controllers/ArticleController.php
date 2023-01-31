@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Category;
+use App\Models\Tag;
+use Illuminate\Support\Facades\Log;
 
 class ArticleController extends Controller
 {
@@ -13,9 +15,9 @@ class ArticleController extends Controller
     {
         return view('articles/index')->with(['articles' => $article->getPaginateByLimit()]);
     }
-    public function create(Category $category)
+    public function create(Tag $tag,Category $category)
     {
-        return view('articles/create')->with(['categories'=>$category->get()]);
+        return view('articles/create')->with(["tags" => $tag->get(),'categories'=>$category->get()]);
     }
     public function show(Article $article)
     {
@@ -26,6 +28,16 @@ class ArticleController extends Controller
         $input = $request['article'];
         $article->fill($input)->save();
         return redirect('/articles/' . $article->id);
+    }
+    public function store2(Request $request, Article $article)
+    {
+        $input_article = $request['article'];
+        $input_tags = $request->tags_array;
+        
+        $article->fill($input_article)->save();
+        
+        $article->tags()->attach($input_tags);
+        return redirect('/articles');
     }
     public function edit(Article $article)
     {

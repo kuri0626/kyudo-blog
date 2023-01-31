@@ -25,6 +25,16 @@
                     @endforeach
                 </select>
             </div>
+            <div>
+                <h2>タグ</h2>
+                    @foreach($tags as $tag)
+                        <label>
+                            <input type="checkbox" value="{{ $tag->id }}" name="tags_array[]" >
+                               {{ $tag->tag_name }}
+                            </input>
+                        </label>
+                    @endforeach>
+            </div>
             <input type="submit" value="作成"/>
             @csrf
         </form>

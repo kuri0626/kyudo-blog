@@ -15,6 +15,10 @@ class Article extends Model
     {
         return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    public function get()
+    {
+        return $this::with('tag')->orderBy('updated_at','DESC')->get();
+    }
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -24,4 +28,7 @@ class Article extends Model
         'body',
         'category_id',
     ];
+    public function tags(){
+        return $this->belongsToMany(Tag::class)->withPivot('tag_id');
+    }
 }

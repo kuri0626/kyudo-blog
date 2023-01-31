@@ -22,6 +22,12 @@
                     </p>
                 </div>
                 <a href="/categories/{{ $article->category->id }}">{{ $article->category->name }}</a>
+                
+                <div class = 'tag'>
+                    @foreach($article->tags as $tag)
+                    {{ $article->tag_name }}
+                    @endforeach
+                </div>
             @endforeach
         </div>
         <a href='/articles/create'>管理者用</a>

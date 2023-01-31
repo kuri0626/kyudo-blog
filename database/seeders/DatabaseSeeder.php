@@ -16,4 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CategorySeeder::class);
     }
+    
+    public function run2()
+    {
+        $this->call(TagSeeder::class);
+    }
 }
