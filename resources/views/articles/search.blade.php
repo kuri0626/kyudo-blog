@@ -8,7 +8,8 @@
     </head>
     <body>
         <h1>弓道射技検索アプリ</h>
-        <h2>ここは{{$articles[0]->category->name}}についての投稿一覧です！</h2>
+        
+        <h2>ここは{{$keyword}}についての検索結果です！</h2>
         <div class = 'articles'>
             @foreach($articles as $article)
                 <div class = 'article'>
