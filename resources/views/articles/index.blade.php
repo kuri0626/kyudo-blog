@@ -11,9 +11,12 @@
         <h2>ここは射技についての知識を共有するブログサイトです！</h2>
         <h3>下の検索バーで欲しい情報を検索しましょう！</h3>
         <div>
-            <input type="search" name="s" placeholder="例：弓手　切り下げ">
+            <form action="/articles/search" method="POST">
+                @csrf
+      　　　　 　  　<input type="search" name="search"  value="{{request('search')}}" placeholder="例：弓手　切り下げ" >
+                <input type="submit" value="検索">
+            </form>
         </div>
-        <input type="submit" value="検索"/>
         <div class = 'articles'>
             @foreach ($articles as $article)
                 <div class = 'article'>
