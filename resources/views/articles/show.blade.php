@@ -25,6 +25,5 @@
         <div class="footer">
             <a href="/">トップに戻る</a>
         </div>
-        <div class="edit"><a href="/articles/{{ $article->id }}/edit">編集</a></div>
     </body>
 </html>
