@@ -39,6 +39,7 @@
             @csrf
         </form>
         <a href="/articles/delete">削除画面</a>
+        <a href="/articles/edit">編集画面</a>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

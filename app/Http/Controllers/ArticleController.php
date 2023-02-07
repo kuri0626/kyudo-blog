@@ -60,10 +60,15 @@ class ArticleController extends Controller
         }//dd($articles->post());
         return view('articles/search')->with(['articles' => $articles,'keyword' => $keyword]);
     }
-    //投稿編集ページ
-    public function edit(Article $article)
+    //管理者用ページから編集画面への遷移
+    public function transitionToEdit(Article $article)
     {
-        return view('articles/edit')->with(['article' => $article]);
+        return view('articles/edit')->with(["articles" => Article::get()]);
+    }
+    //編集画面から編集実行画面への遷移
+    public function transitionToCompile(Article $article)
+    {
+        return view('articles/compile')->with(['article' => $article]);
     }
     //投稿のアップデート
     public function update(ArticleRequest $request, Article $article)
@@ -73,12 +78,12 @@ class ArticleController extends Controller
         return redirect('/articles/' . $article->id);
     }
     //管理者用ページから削除画面への遷移
-    public function delete2(Article $article)
+    public function transitionToDelete(Article $article)
     {
         return view('articles/delete')->with(["articles" => Article::get()]);
     }
     //投稿の削除機能
-    public function delete(Request $request, Article $article)
+    public function deleteArticle(Request $request, Article $article)
     {
         
         $article->delete();
