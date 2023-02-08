@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,27 +15,51 @@ use App\Http\Controllers\CategoryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//投稿一覧ページ
-Route::get('/',[ArticleController::class, 'index']);
-//管理者用ページの投稿機能
-Route::post('/articles', [ArticleController::class, 'store']);
-//管理者用ページから編集画面への遷移
-Route::get('/articles/edit', [ArticleController::class, 'transitionToEdit']);
-//編集画面から編集実行画面への遷移
-Route::get('/articles/{article}/compile', [ArticleController::class, 'transitionToCompile']);
-//管理者用ページから削除画面への遷移
-Route::get('/articles/delete', [ArticleController::class, 'transitionToDelete']);
-//管理者用ページ
-Route::get('/articles/create', [ArticleController::class, 'create']);
-//タグ検索機能
-Route::post('/articles/search', [ArticleController::class, 'search']);
-//投稿詳細ページ
-Route::get('/articles/{article}', [ArticleController::class, 'show']);
-//投稿のアップデート
-Route::put('/articles/{article}', [ArticleController::class, 'update']);
-//投稿の削除機能
-Route::delete('/articles/{article}', [ArticleController::class, 'deleteArticle']);
-//カテゴリー別投稿一覧ページ
-Route::get('/categories/{category}', [CategoryController::class, 'index']);
+//管理者とそれ以外の認証機能
+/*Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
+    Route::get('/articles/create', function () {
+        return 'admin only';
+    });
+});
+*/
 
+//ログイン画面
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::controller(ArticleController::class)->group(function(){
+    //投稿一覧ページ
+   Route::get('/', 'index')->name('index');
+   //管理者用ページの投稿機能
+   Route::post('/articles', 'store')->name('store');
+   //管理者用ページから編集画面への遷移
+   Route::get('/articles/edit', 'transitionToEdit')->name('transitionToEdit');
+   //編集画面から編集実行画面への遷移
+   Route::get('/articles/{article}/compile', 'transitionToCompile')->name('transitionToCompile');
+   //管理者用ページから削除画面への遷移
+   Route::get('/articles/delete', 'transitionToDelete')->name('transitionToDelete');
+   //管理者用ページ
+   Route::get('/articles/create', 'create')->middleware(['auth'])->name('create');
+   //タグ検索機能
+   Route::post('/articles/search', 'search')->name('search');
+   //投稿詳細ページ
+   Route::get('/articles/{article}', 'show')->name('show');
+   //投稿のアップデート
+   Route::put('/articles/{article}', 'update')->name('update');
+   //投稿の削除機能
+   Route::delete('/articles/{article}', 'deleteArticle')->name('deleteArticle');
+});
+
+Route::controller(CategoryController::class)->middleware(['auth'])->group(function(){
+    //カテゴリー別投稿一覧ページ
+    Route::get('/categories/{category}', 'index')->name('index');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
