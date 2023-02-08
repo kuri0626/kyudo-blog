@@ -11,13 +11,24 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
+    //ログイン機能
+    public function login(LoginRequest $request)
+    {
+        $request->authenticate();
+        $request->session()->regenerate();
+ 
+        if (Auth::User()->admin == true) {
+            return redirect('/articles/create');
+        }
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
     //投稿一覧ページ
     public function index(Article $article)
     {
         return view('articles/index')->with(['articles' => $article->getPaginateByLimit()]);
     }
     //管理者用ページ
-    public function create(Tag $tag,Category $category)
+    public function create(Request $request, Tag $tag,Category $category)
     {
         return view('articles/create')->with(["tags" => $tag->get(),'categories'=>$category->get()]);
     }
