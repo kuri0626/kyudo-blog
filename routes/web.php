@@ -3,10 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
-<<<<<<< HEAD
 use App\Http\Controllers\BbController;
-=======
->>>>>>> fdbeb407c1c70a47e2506a299aa574ea04c9ca45
 use Illuminate\Support\Facades\Route;
 
 /*
