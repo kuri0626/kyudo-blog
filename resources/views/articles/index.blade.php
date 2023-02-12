@@ -34,6 +34,7 @@
             @endforeach
         </div>
         <a href='/articles/create'>管理者用</a>
+        <a href="/bbs/bbs">掲示板</a>
         <script>
             function deleteArticle(id){
                 'use strict'
