@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+<<<<<<< HEAD
+use App\Http\Controllers\BbController;
+=======
+>>>>>>> fdbeb407c1c70a47e2506a299aa574ea04c9ca45
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,12 +55,14 @@ Route::controller(ArticleController::class)->group(function(){
    Route::delete('/articles/{article}', 'deleteArticle')->name('deleteArticle');
 });
 
-Route::controller(CategoryController::class)->middleware(['auth'])->group(function(){
+Route::controller(CategoryController::class)->group(function(){
     //カテゴリー別投稿一覧ページ
     Route::get('/categories/{category}', 'index')->name('index');
 });
 
-Route::middleware('auth')->group(function () {
+Route::resource('/bbs/bbs', BbController::class);
+
+Route::middleware('auth')->group(function (){
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

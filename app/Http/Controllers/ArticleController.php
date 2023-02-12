@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Bb;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
