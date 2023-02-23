@@ -23,6 +23,7 @@
             @endforeach
         </div>
         <div class="footer">
+            <p>あなたは{{$article->access_counter}}人目の訪問者です！</p>
             <a href="/">トップに戻る</a>
         </div>
     </body>

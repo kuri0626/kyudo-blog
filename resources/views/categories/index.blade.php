@@ -2,13 +2,14 @@
 <html lang = "{{ str_replace('_','-',app()->getLocale())}}">
     <head>
         <meta charset="utf-8">
-        <title>弓道射技検索アプリ</title>
+        <title>弓道射技検索サイト</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>弓道射技検索アプリ</h>
+        <h1>弓道射技検索サイト</h>
         <h2>ここは{{$articles[0]->category->name}}についての投稿一覧です！</h2>
+        <h3>新着順</h3>
         <div class = 'articles'>
             @foreach($articles as $article)
                 <div class = 'article'>
