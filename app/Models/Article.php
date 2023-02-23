@@ -13,7 +13,7 @@ class Article extends Model
     
     public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('category')->orderBy('access_counter', 'DESC')->paginate($limit_count);
     }
     public function tag()
     {
@@ -28,6 +28,7 @@ class Article extends Model
         'body',
         'category_id',
         'tag_id',
+        'access_counter',
     ];
     public function tags(){
         return $this->belongsToMany('App\Models\Tag');

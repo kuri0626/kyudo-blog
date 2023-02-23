@@ -24,9 +24,9 @@ class ArticleController extends Controller
         return redirect()->intended(RouteServiceProvider::HOME);
     }
     //投稿一覧ページ
-    public function index(Article $article)
+    public function index(Article $article, Category $category)
     {
-        return view('articles/index')->with(['articles' => $article->getPaginateByLimit()]);
+        return view('articles/index')->with(['articles' => $article->getPaginateByLimit(5) , 'categories' => $category->get()]);
     }
     //管理者用ページ
     public function create(Request $request, Tag $tag,Category $category)
@@ -34,8 +34,12 @@ class ArticleController extends Controller
         return view('articles/create')->with(["tags" => $tag->get(),'categories'=>$category->get()]);
     }
     //投稿詳細ページ
-    public function show(Article $article)
+    public function show(Article $article, Request $request)
     {
+        //アクセスカウンター
+        $article->access_counter += 1;
+        $article->save();
+        
         return view("articles/show")->with(["article" => $article->load("tags")]);
     }
     //管理者用ページの投稿機能

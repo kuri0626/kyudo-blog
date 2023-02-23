@@ -14,6 +14,6 @@ class Category extends Model
     }
     public function getByCategory(int $limit_count = 5)
     {
-        return $this->articles()->with('category')->orderBy('updated_at','DESC')->paginate($limit_count);
+        return $this->articles()->with('category')->orderBy('created_at','DESC')->paginate($limit_count);
     }
 }
