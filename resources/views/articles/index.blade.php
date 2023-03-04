@@ -3,19 +3,28 @@
     <head>
         <meta charset="utf-8">
         <title>弓道射技検索サイト</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/css/articles/index.css')  }}" >
     </head>
     <body>
         <h1>弓道射技検索サイト</h1>
-        <h2>ここは射技についての知識を共有するブログサイトです！</h2>
-        <h3>下の検索バーで欲しい情報を検索しましょう！</h3>
-        <div>
+        <h2>ここは<norb>射技についての知識を共有するブログサイト</norb>です！</h2>
+        <div class = 'bb'>
+            <h3>下の検索バーで欲しい情報を検索しましょう！</h3>
             <form action="/articles/search" method="POST">
                 @csrf
-      　　　　 　  　<input type="search" name="search"  value="{{request('search')}}" placeholder="例：弓手　切り下げ" >
-                <input type="submit" value="検索">
-            </form>
+                <div class = 'bb1'>
+                    <input type="search" name="search" value="{{ request('search') }}" placeholder="例:弓手　切り下げ">
+                </div>
+                <div class = 'bb2'>
+                    <input type="submit" value="検索">
+                </div>
+      　     </form>
+        </div>
+        <div class = 'introduction'>
+            <h3>☜</h3>
+            <a href="/articles/introduction" class = "btn-img">
+                <img src="https://res.cloudinary.com/devb4gqp1/image/upload/v1677856377/bs5seefkdlwcemfpd7hd.png" >
+            </a>
         </div>
         <div class = 'articles'>
             <h3>人気の投稿</h3>
@@ -42,7 +51,9 @@
             <h3>掲示板はこちら！</h3>
             <a href="/bbs/bbs">掲示板</a>
         </div>
-        <a href='/articles/create'>管理者用</a>
+        <div class="admin">
+            <a href='/articles/create'>管理者用</a>
+        </div>
         <script>
             function deleteArticle(id){
                 'use strict'

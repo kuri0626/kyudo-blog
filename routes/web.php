@@ -30,8 +30,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(ArticleController::class)->group(function(){
+   
     //投稿一覧ページ
    Route::get('/', 'index')->name('index');
+    //自己紹介ページ
+   Route::get('/articles/introduction', 'introduction')->name('introduction');
    //管理者用ページの投稿機能
    Route::post('/articles', 'store')->name('store');
    //管理者用ページから編集画面への遷移

@@ -1,0 +1,78 @@
+body{
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677523210/kb0w7di0hpxfzs7rk2s7.png);
+    background-size: 1300px 800px;
+}
+h1{
+    text-align: center;
+    position: relative;
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677857293/ssnvzhbu0iv2gt65oiry.png);
+    background-size: 800px 100px;
+    width: 800px;
+}
+h2{
+    position: relative;
+    left: 50px;
+}
+.caution h3{
+    color: red;
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677899760/tkphehhlxo1y4kpumi5b.png);
+    background-size: 80px 40px;
+    height: 40px;
+    width: fit-content;
+    position: relative;
+    left: 50px;
+}
+.caution h4{
+    position: relative;
+    left: 50px;
+    text-decoration: underline;
+    text-decoration-color:red; 
+}
+.container{
+    position: relative;
+    left: 50px;
+}
+.container .card .card-header .row .title strong{
+    text-decoration: underline;
+    text-decoration-color:red; 
+}
+.container hr{
+    position: relative;
+    right: 50px;
+}
+.container .bbs .title_name h4{
+    text-decoration: underline;
+    text-decoration-color:red; 
+    width: fit-content;
+    height: 25px;
+}
+.container .bbs .title_name .textbox input{
+    width: 400px;
+    line-height: 2;
+}
+.container .bbs .body h4{
+    text-decoration: underline;
+    text-decoration-color:red; 
+    width: fit-content;
+    height: 25px;
+}
+.container .bbs .body .body textarea{
+    width: 800px;
+}
+.container .bbs .submit .submit button{
+    text-decoration: underline;
+    text-decoration-color:red; 
+    width: fit-content;
+    height: 25px;
+}
+.container .bbs .submit .submit h3{
+    position: relative;
+    bottom: 17px;
+}
+.container .bbs .footer a{
+    background-color: #ff99ff;
+    border-radius: 50px 50px 50px 50px;
+    width: 80px;
+    position: relative;
+    top: 20px;
+}

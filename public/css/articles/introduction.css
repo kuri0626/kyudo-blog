@@ -1,0 +1,74 @@
+body{
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677523210/kb0w7di0hpxfzs7rk2s7.png);
+    background-size: 1300px 900px;
+    position: relative;
+    width: 1200px;
+    height: 600px;
+}
+h1{
+    text-align: center;
+    position: relative;
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677857293/ssnvzhbu0iv2gt65oiry.png);
+    background-size: 800px 100px;
+    width: 800px;
+}
+h2{
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677894843/cl0yzoc9daiio5o9k9yq.png);
+    background-size: 200px 30px;
+    height: 30px;
+    width: fit-content;
+    position: relative;
+    left: 50px;
+}
+.introduction h4{
+    line-height: 0.5em;
+    position: relative;
+    left: 50px;
+}
+.introduction label{
+    background-color: #ff99ff;
+}
+.introduction-an-admin h3{
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677894843/cl0yzoc9daiio5o9k9yq.png);
+    background-size: 170px 25px;
+    height: 25px;
+    width: fit-content;
+    position: relative;
+    left: 50px;
+}
+.introduction-an-admin h4{
+    line-height: 0.5em;
+    position: relative;
+    left: 50px;
+    text-decoration: underline;
+    text-decoration-color:red; 
+}
+.image img{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    left: 650px;
+    bottom: 200px;
+}
+.image label{
+    position: relative;
+    left: 330px;
+    bottom: 200px;
+}
+.postscript{
+    position: relative;
+    bottom: 200px;
+    line-height: 0.5em;
+    left: 50px;
+}
+.postscript label{
+    background-color: #ff99ff;
+}
+.footer a{
+    position: relative;
+    bottom: 170px;
+    left: 50px;
+    background-color: #ff99ff;
+    border-radius: 50px 50px 50px 50px;
+    width: 110px;
+}

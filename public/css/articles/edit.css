@@ -1,0 +1,19 @@
+body{
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677523210/kb0w7di0hpxfzs7rk2s7.png);
+    background-size: 1300px 900px;
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    left: 50px;
+}
+h1{
+    text-align: center;
+    position: relative;
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677857293/ssnvzhbu0iv2gt65oiry.png);
+    background-size: 800px 100px;
+    width: 800px;
+}
+.articles .edit a{
+    text-decoration: underline;
+    text-decoration-color:red; 
+}

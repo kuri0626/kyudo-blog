@@ -29,6 +29,7 @@ class Article extends Model
         'category_id',
         'tag_id',
         'access_counter',
+        'image_url',
     ];
     public function tags(){
         return $this->belongsToMany('App\Models\Tag');
