@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Bb;
 use Illuminate\Support\Facades\DB;
+use Cloudinary;
 
 class ArticleController extends Controller
 {
@@ -28,6 +29,10 @@ class ArticleController extends Controller
     {
         return view('articles/index')->with(['articles' => $article->getPaginateByLimit(5) , 'categories' => $category->get()]);
     }
+    public function introduction(Article $article)
+    {
+        return view('articles/introduction');
+    }
     //管理者用ページ
     public function create(Request $request, Tag $tag,Category $category)
     {
@@ -39,13 +44,17 @@ class ArticleController extends Controller
         //アクセスカウンター
         $article->access_counter += 1;
         $article->save();
-        
         return view("articles/show")->with(["article" => $article->load("tags")]);
     }
     //管理者用ページの投稿機能
-    public function store(Article $article, ArticleRequest $request)
+    public function store(Article $article, Request $request)
     {
-        $input = $request['article'];
+       $input = $request['article'];
+        if($request->file('image')){ //画像ファイルが送られた時だけ処理が実行される
+            $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            // dd($image_url);
+            $input += ['image_url' => $image_url];
+        }
         $article->fill($input)->save();
         $input_tags = $request->tags_array;
         
@@ -71,9 +80,9 @@ class ArticleController extends Controller
                 $query->where('tag_name', 'like', '%' . $keyword . '%');
             })
             ->paginate(10);
-        }else{dd($articles->get());
+        }else{
             return redirect('/');
-        }//dd($articles->post());
+        }
         return view('articles/search')->with(['articles' => $articles,'keyword' => $keyword]);
     }
     //管理者用ページから編集画面への遷移

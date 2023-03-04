@@ -3,12 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>弓道射技検索サイト</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/css/categories/index.css')  }}" >
     </head>
     <body>
         <h1>弓道射技検索サイト</h>
-        <h2>ここは{{$articles[0]->category->name}}についての投稿一覧です！</h2>
+        <h2>ここは<label>{{$articles[0]->category->name}}</label>についての投稿一覧です！</h2>
         <h3>新着順</h3>
         <div class = 'articles'>
             @foreach($articles as $article)
@@ -19,9 +18,8 @@
                 </div>
             @endforeach
         </div>
-        <a href="/">トップに戻る</a>
-        <div>
-        <a href='/articles/create'>管理者用</a>
+        <div class="footer">
+            <a href="/">トップに戻る</a>
         </div>
     </body>
 </html>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title',100);
             $table->string('body',3000);
+            $table->string('image_url')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

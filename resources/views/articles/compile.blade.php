@@ -3,13 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>弓道射技検索アプリ</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/css/articles/compile.css')  }}" >
     </head>
     <body>
         <h1 class="title">編集実行画面</h1>
         <div class="content">
-            <form action="/articles/{{ $article->id }}" method="POST">
+            <form action="/articles/{{ $article->id }}" class="compile" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class='content__title'>
@@ -18,9 +17,11 @@
                 </div>
                 <div class='content__body'>
                     <h2>本文</h2>
-                    <input type='text' name='article[body]' value="{{ $article->body }}">
+                    <textarea name='article[body]'>{{ old('article.body') }}</textarea>
                 </div>
-                <input type="submit" value="edit">
+                <div class="footer">
+                    <input type="submit" value="edit">
+                </div>
             </form>
         </div>
     </body>

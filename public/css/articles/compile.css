@@ -1,0 +1,30 @@
+body{
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677523210/kb0w7di0hpxfzs7rk2s7.png);
+    background-size: 1300px 900px;
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    left: 50px;
+}
+h1{
+    text-align: center;
+    position: relative;
+    background-image: url(https://res.cloudinary.com/devb4gqp1/image/upload/v1677857293/ssnvzhbu0iv2gt65oiry.png);
+    background-size: 800px 100px;
+    width: 800px;
+}
+.content .compile .content__title input{
+    width: 800px;
+    line-height: 2;
+}
+.content .compile .content__body textarea{
+    width: 1075px;
+    padding: 10px;
+    line-height: 2;
+    height: 20em;
+}
+.footer input{
+    background-color: #ff99ff;
+    border-radius: 50px 50px 50px 50px;
+    width: 80px;
+}

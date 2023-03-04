@@ -2,11 +2,12 @@
 <html lang="{{ str_replace('_','-',app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Article</title>
+        <title>弓道射技検索サイト</title>
+        <link rel="stylesheet" href="{{ asset('/css/articles/create.css')  }}" >
     </head>
     <body>
         <h1>投稿作成画面</h1>
-        <form action="/articles" method="POST">
+        <form action="/articles" class="create" method="POST" enctype="multipart/form-data">
             <div class="title">
                 <h2>タイトル</h2>
                 <input type="text" name="article[title]" value="{{ old('article.title') }}"/>
@@ -34,6 +35,9 @@
                             </input>
                         </label>
                     @endforeach>
+            </div>
+            <div class="image">
+                <input type="file" name="image">
             </div>
             <input type="submit" value="作成"/>
             @csrf

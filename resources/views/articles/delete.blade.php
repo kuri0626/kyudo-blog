@@ -3,8 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>弓道射技検索アプリ</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/css/articles/delete.css')  }}" >
     </head>
     <body>
         <h1>投稿削除画面</h1>
@@ -14,7 +13,7 @@
                     <p class = 'title'>
                         <a href="/articles/{{ $article->id }}">{{ $article->title }}</a>
                     </p>
-                    <form action="/articles/{{ $article->id }}" id="form_{{ $article->id }}" method="post">
+                    <form action="/articles/{{ $article->id }}" id="form_{{ $article->id }}" class="delete"  method="post">
                         @csrf
                         @method('DELETE')
                         <button  type="button" onclick="deleteArticle({{ $article->id }})">削除</button>
